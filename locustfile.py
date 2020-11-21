@@ -4,6 +4,7 @@ from locust import HttpUser, task, between, TaskSet
 class UserTask1(TaskSet):
 
     def graphql_request(self, query, variable, name):
+
         with self.client.post(url="", json={'query': query, 'variables': variable}, catch_response=True,
                               name=name) as response:
             print(response.text)
